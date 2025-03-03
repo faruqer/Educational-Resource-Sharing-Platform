@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ resource.title }}{% endblock %}
+
+{% block content %}
+<article>
+  <h1>{{ resource.title }}</h1>
+  <p>{{ resource.description }}</p>
+  <p><strong>Category:</strong> {{ resource.category.name }}</p>
+  <p><strong>Type:</strong> {{ resource.get_resource_type_display }}</p>
+  <p><strong>Uploaded by:</strong> {{ resource.created_by.username }}</p>
+
+  {% if resource.file %}
+    <p><a href="{{ resource.file.url }}" target="_blank">Download file</a></p>
+  {% endif %}
+
+  {% if resource.external_url %}
+    <p><a href="{{ resource.external_url }}" target="_blank">Open external link</a></p>
+  {% endif %}
+
+  {% if user.is_authenticated and user == resource.created_by %}
+    <p>
+      <a href="{% url 'resource_update' resource.pk %}">Edit</a> |
+      <a href="{% url 'resource_delete' resource.pk %}">Delete</a>
+    </p>
+  {% endif %}
+</article>
+{% endblock %}

@@ -3,6 +3,7 @@
 ## Current Phase
 - Authentication and Profile Management are DONE
 - Resource domain models are DONE
+- Resource CRUD + Search (web) are DONE
 
 ## Run
 1. Create and activate a Python virtual environment.
@@ -26,3 +27,8 @@ Auth URLs:
 - `http://127.0.0.1:8000/accounts/signup/`
 - `http://127.0.0.1:8000/accounts/login/`
 - `http://127.0.0.1:8000/accounts/profile/`
+
+Resource URLs:
+- `http://127.0.0.1:8000/`
+- `http://127.0.0.1:8000/resources/new/`
+

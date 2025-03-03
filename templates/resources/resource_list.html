@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+<h1>Educational Resources</h1>
+
+<form method="get">
+  <input type="text" name="q" placeholder="Search resources" value="{{ query }}">
+  <select name="category">
+    <option value="">All categories</option>
+    {% for category in categories %}
+      <option value="{{ category.slug }}" {% if selected_category == category.slug %}selected{% endif %}>{{ category.name }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Filter</button>
+</form>
+
+{% if user.is_authenticated %}
+  <p><a href="{% url 'resource_create' %}">Upload Resource</a></p>
+{% endif %}
+
+{% for resource in resources %}
+  <article>
+    <h3><a href="{% url 'resource_detail' resource.pk %}">{{ resource.title }}</a></h3>
+    <p>{{ resource.description|truncatechars:120 }}</p>
+    <p><strong>Category:</strong> {{ resource.category.name }} | <strong>Type:</strong> {{ resource.get_resource_type_display }}</p>
+    <p><strong>By:</strong> {{ resource.created_by.username }}</p>
+  </article>
+{% empty %}
+  <p>No resources found.</p>
+{% endfor %}
+{% endblock %}
