@@ -4,6 +4,7 @@
 - Authentication and Profile Management are DONE
 - Resource domain models are DONE
 - Resource CRUD + Search (web) are DONE
+- REST API endpoints are DONE
 
 ## Run
 1. Create and activate a Python virtual environment.
@@ -32,3 +33,6 @@ Resource URLs:
 - `http://127.0.0.1:8000/`
 - `http://127.0.0.1:8000/resources/new/`
 
+API URLs:
+- `http://127.0.0.1:8000/api/categories/`
+- `http://127.0.0.1:8000/api/resources/`
