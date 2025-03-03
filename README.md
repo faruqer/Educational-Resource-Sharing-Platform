@@ -5,6 +5,7 @@
 - Resource domain models are DONE
 - Resource CRUD + Search (web) are DONE
 - REST API endpoints are DONE
+- Basic automated tests are DONE
 
 ## Run
 1. Create and activate a Python virtual environment.
